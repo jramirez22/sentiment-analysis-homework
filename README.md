@@ -38,24 +38,16 @@ The main hyperparameters that we use to create different models and be able to c
 2. As a second hyperparameter we use the amount of preprocessing that exists within the reviews. This is if the model has the removal of stopwords, creation of bigrams and/or lemmatization.
 3. The third hyperparameter is the min_count in bigram creation. min_count ignore all words and bigrams with total collected count lower than this value.
 
-- #### Model 1
+# Hyperparameters and results table
 
-Parameters: 
-    hyper_sen_trshld : 50
-    stopwords, creation of bigrams and lemmatization
-    min_count = 8
+| Modelos | Sentiment threshold | stopwords | biagrams | Lemmatization | Min Count (bigram param)
+| :----------: | :----------: | :----------: | :----------: | :----------: | :----------: |
+| Model 1 | 50 | Yes | Yes | Yes | 8 |
+| Modelo 2 | | | | | |
 
-Results:
-
-- precision:  0.54
-- recall: 0.33
-- accuracy:  0.38
-
-
-- #### Model 2
-
-
-- #### Model 3
+| Modelos | Precision | Recall | Accuracy | 
+| :----------: | :----------: | :----------: | :----------: |
+| Model 1 | 0.54 | 0.33 | 0.38 |
 
 
 
