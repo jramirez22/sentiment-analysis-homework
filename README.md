@@ -19,6 +19,8 @@ pip install -r requirements.txt
 
 ## Usage and Process
 
+In order to use some model, it can be loaded using the pickle library. Models are located under the /models folder in the root of the project, models are dict objects.
+
 prepare_data.ipynb -> tokenize.ipynb ->  train.ipynb 
 
 To get started, we first use the prepare_data.ipynb notebook. The notebook will generate a dictionary containing a list of positive reviews and a list of negative reviews. Reviews contain a rating between 10 - 50 (10, 20, 30, 40, 50), with 10 being terrible and 50 being excellent. A review is assigned to one of the lists based on a rating threshold (first hyperparameter). If the review rating is greater than or equal to the threshold, then it is assigned to the positive sentiment list.
@@ -40,15 +42,24 @@ The main hyperparameters that we use to create different models and be able to c
 
 # Hyperparameters and results table
 
-| Modelos | Sentiment threshold | stopwords | biagrams | Lemmatization | Min Count (bigram param)
+| Modelos | Sentiment threshold | Stopwords | Biagrams | Lemmatization | Min Count (bigram param)
 | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: |
 | Model 1 | 50 | Yes | Yes | Yes | 8 |
-| Modelo 2 | | | | | |
+| Model 2 | 40 | Yes | Yes | Yes | 5 (default)|
+| Model 2 | 30 | Yes | No  | Yes  | - |
 
 | Modelos | Precision | Recall | Accuracy | 
 | :----------: | :----------: | :----------: | :----------: |
 | Model 1 | 0.54 | 0.33 | 0.38 |
+| Model 2 | 0.85 | 0.56 | 0.53 |
+| Model 3 | 0.94 | 0.66 | 0.64 |
 
+
+## Discussion
+
+It seems that the lower the threshold or the score at which we consider a review as positive, the better the model has when it comes to predicting. Using thresholds with a very high review score makes the model more prone to generating false positives, by not being able to identify positive reviews.
+
+The values for model 3 in terms of recall and accuracy are better for reviews that the model has never seen (test split / test data). This responds better because it generates fewer false positives by having the lowest score threshold (a value greater than or equal to 30 for a review is considered positive).
 
 
 ## Team contributions
